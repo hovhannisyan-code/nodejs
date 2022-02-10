@@ -1,0 +1,2 @@
+D:\nodejs\src\text.txt ----------- 6208 kb (0.006 MB)
+D:\nodejs\src\folder1\text.txt ----------- 15523 kb (0.015 MB)
