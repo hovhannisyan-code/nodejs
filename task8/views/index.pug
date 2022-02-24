@@ -1,4 +1,45 @@
-html 
-  include ../includes/header.pug
-  h1 Index page
-    include ../includes/footer.pug
+extends ./layout.pug 
+block content
+  .container.mt-3.mb-4
+    .col-lg-9.mt-4.mt-lg-0
+      .row
+        .col-md-12
+          .user-dashboard-info-box.table-responsive.mb-0.bg-white.p-4.shadow-sm
+            table.table.manage-contacts-top.mb-0
+              thead
+                tr
+                  th Contact Name
+                  th.text-center Status
+                  th.action.text-right Action
+              tbody
+                each contact in contacts
+                  tr.contacts-list
+                    td.title
+                      .thumb
+                        img.img-fluid(src=`https://bootdey.com/img/Content/avatar/avatar${contact.id > 7 ? 7 : contact.id}.png` alt=contact.name)
+                      .contact-list-details
+                        .contact-list-info
+                          .contact-list-title
+                            h5.mb-0
+                              a(href=`/contacts/edit/${contact.id}`) #{contact.name}
+                          .contact-list-option
+                            ul.list-unstyled
+                              li
+                                i.fas.fa-envelope.pr-1
+                                | #{contact.email}
+                              li
+                                i.fas.fa-phone.pr-1
+                                | #{contact.phone}
+                    td.contact-list-favourite-time.text-center
+                      a.contact-list-favourite.order-2.text-danger(href='#')
+                        i.fas.fa-heart
+                      span.contact-list-time.order-1 Shortlisted
+                    td
+                      ul.list-unstyled.mb-0.d-flex.justify-content-end
+                        li
+                          a.text-info(href=`/contacts/edit/${contact.id}` data-toggle='tooltip' title='' data-original-title='Edit')
+                            i.fas.fa-pencil-alt
+                        li
+                          a.text-danger(href=`/contacts/delete/${contact.id}` data-toggle='tooltip' title='' data-original-title='Delete')
+                            i.far.fa-trash-alt              
+          

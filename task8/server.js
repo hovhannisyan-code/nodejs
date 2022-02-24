@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 4000;
 const contactController = require("./controllers/contact.controller");
 const contactRouter = require("./routes/contact.route");
 
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", contactController.index);
 
-app.use("/contact", contactRouter);
+app.use("/contacts", contactRouter);
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`);

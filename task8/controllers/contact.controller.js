@@ -34,15 +34,29 @@ const postCreate = (req, res) => {
 };
 
 const edit = (req, res) => {
-  res.send('contact/edit');
+  const { id } = req.params;
+  const contact = contacts.find(contact => contact.id === parseInt(id));
+  res.render("edit", {
+    title: "Edit Contact",
+    contact
+  });
 };
 
 const postEdit = (req, res) => {
-  res.send('contact/postEdit');
+  const { id } = req.params;
+  const { name, phone, email } = req.body;
+  const contact = contacts.find(contact => contact.id === parseInt(id));
+  contact.name = name;
+  contact.phone = phone;
+  contact.email = email;
+  res.redirect("/");
 };
 
 const deleteContact = (req, res) => {
-  res.send('contact/delete');
+  const { id } = req.params;
+  const contact = contacts.find(contact => contact.id === parseInt(id));
+  contacts.splice(contacts.indexOf(contact), 1);
+  res.redirect("/");
 };
 module.exports = {
   index,
