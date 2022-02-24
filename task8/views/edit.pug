@@ -1,4 +1,12 @@
 extends ./layout.pug
 block content 
     .container.mt-3.mb-4
-        p #{contact.name}
+        h1 #{title}
+        if error
+            .alert.alert-danger.text-uppercase #{error}
+        form(method="post" action=`/contacts/edit/${contact.id}`)
+            input(type="text" name="name" value=contact.name)
+            input(type="text" name="phone" value=contact.phone)
+            input(type="text" name="email" value=contact.email)
+            input(type="submit" value="Сохранить")
+            a(href="/") Назад

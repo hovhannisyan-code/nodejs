@@ -16,7 +16,7 @@ block content
                   tr.contacts-list
                     td.title
                       .thumb
-                        img.img-fluid(src=`https://bootdey.com/img/Content/avatar/avatar${contact.id > 7 ? 7 : contact.id}.png` alt=contact.name)
+                        img.img-fluid(src=`https://bootdey.com/img/Content/avatar/avatar${Math.floor(Math.random() * 6) + 1}.png` alt=contact.name)
                       .contact-list-details
                         .contact-list-info
                           .contact-list-title

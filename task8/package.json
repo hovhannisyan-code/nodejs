@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
   "dependencies": {
     "eslint-config-prettier": "^8.4.0",
     "express": "^4.17.3",
+    "joi": "^17.6.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   }

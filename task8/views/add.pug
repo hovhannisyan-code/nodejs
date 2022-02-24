@@ -1,0 +1,12 @@
+extends ./layout.pug
+block content 
+    .container.mt-3.mb-4
+        h1 #{title}
+        if error
+            .alert.alert-danger.text-uppercase #{error}
+        form(method="post" action=`/contacts/new`)
+            input(type="text" name="name" value="" placeholder="Name")
+            input(type="text" name="phone" value="" placeholder="Phone")
+            input(type="text" name="email" value="" placeholder="Email")
+            input(type="submit" value="Сохранить")
+            a(href="/") Назад
